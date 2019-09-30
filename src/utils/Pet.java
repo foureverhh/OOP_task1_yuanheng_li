@@ -63,6 +63,9 @@ public class Pet implements PetFeeder {
                     break;
                 }catch (Exception e){
                     petName = JOptionPane.showInputDialog("Your input does not match, input a pet name again:");
+                    if (petName == null){
+                        System.exit(0);
+                    }
                 }
             }
 
