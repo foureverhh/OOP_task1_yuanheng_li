@@ -36,16 +36,17 @@ public class Pet implements PetFeeder {
 
     public static void getProperPet(){
         Pet pet = null;
+        PetsInHotel petChosen = null;
+
         String petName = JOptionPane.showInputDialog(null,
                 "Input a pet name:"
                 ,"Pet Name"
                 ,JOptionPane.INFORMATION_MESSAGE);
 
-        PetsInHotel petChosen = null;
 
             while(true){
                 try {
-                    petChosen = Enum.valueOf(PetsInHotel.class,petName.toUpperCase());
+                    petChosen = Enum.valueOf(PetsInHotel.class,petName.trim().toUpperCase());
                     break;
                 }catch (Exception e){
                     petName = JOptionPane.showInputDialog("Your input does not match, input a pet name again:");
@@ -57,23 +58,23 @@ public class Pet implements PetFeeder {
 
             switch (petChosen){
                 case DOGGE:
-                    pet = new Dog(PetsInHotel.DOGGE.getWeight(), PetsInHotel.DOGGE.getFoodType());
+                    pet = new Dog(PetsInHotel.DOGGE.weight, PetsInHotel.DOGGE.foodType);
                     pet.feed();
                     break;
                 case SIXTEN:
-                    pet = new Cat(PetsInHotel.SIXTEN.getWeight(), PetsInHotel.SIXTEN.getFoodType());
+                    pet = new Cat(PetsInHotel.SIXTEN.weight, PetsInHotel.SIXTEN.foodType);
                     pet.feed();
                     break;
                 case OVE:
-                    pet = new Cat(PetsInHotel.OVE.getWeight(), PetsInHotel.OVE.getFoodType());
+                    pet = new Cat(PetsInHotel.OVE.weight, PetsInHotel.OVE.foodType);
                     pet.feed();
                     break;
                 case VENUS:
-                    pet = new Cat(PetsInHotel.VENUS.getWeight(), PetsInHotel.VENUS.getFoodType());
+                    pet = new Cat(PetsInHotel.VENUS.weight, PetsInHotel.VENUS.foodType);
                     pet.feed();
                     break;
                 case HYPNO:
-                    pet = new Snake(PetsInHotel.HYPNO.getFoodType());
+                    pet = new Snake(PetsInHotel.HYPNO.foodType);
                     pet.feed();
                     break;
             }
