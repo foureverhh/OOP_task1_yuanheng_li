@@ -34,7 +34,7 @@ public class Pet implements PetFeeder {
         return foodType;
     }
 
-    public static Pet getProperPet(){
+    public static void getProperPet(){
         Pet pet = null;
         String petName = JOptionPane.showInputDialog(null,
                 "Input a pet name:"
@@ -77,8 +77,6 @@ public class Pet implements PetFeeder {
                     pet.feed();
                     break;
             }
-
-        return pet;
     }
 
     public static class WarmBloodedPet extends Pet {
