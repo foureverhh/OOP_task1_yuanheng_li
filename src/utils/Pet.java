@@ -41,21 +41,7 @@ public class Pet implements PetFeeder {
                 ,"Pet Name"
                 ,JOptionPane.INFORMATION_MESSAGE);
 
-        while(pet==null) {
-            //To make sure pet name should not be empty
-            while(true) {
-                if (petName == null){
-                    System.exit(0);
-                }
-                if (petName.trim().length()==0) {
-                //if(petName == null ){
-                    petName = JOptionPane.showInputDialog("Your input does not match, input a pet name again:");
-                }else {
-                    break;
-                }
-            }
-
-            PetsInHotel petChosen = null;
+        PetsInHotel petChosen = null;
 
             while(true){
                 try {
@@ -91,8 +77,6 @@ public class Pet implements PetFeeder {
                     pet.feed();
                     break;
             }
-            petName = "";
-        }
 
         return pet;
     }
