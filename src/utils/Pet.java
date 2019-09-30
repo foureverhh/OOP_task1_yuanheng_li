@@ -54,24 +54,55 @@ public class Pet implements PetFeeder {
                     break;
                 }
             }
+            PetsInHotel petChosen = null;
 
+            while(true){
+                try {
+                    petChosen = Enum.valueOf(PetsInHotel.class,petName.toUpperCase());
+                    break;
+                }catch (Exception e){
+                    petName = JOptionPane.showInputDialog("Your input does not match, input a pet name again:");
+                }
+            }
+
+            System.out.println(petChosen);
+            switch (petChosen){
+                case DOGGE:
+                    pet = new Dog(PetsInHotel.DOGGE.getWeight(), PetsInHotel.DOGGE.getFoodType());
+                    break;
+                case SIXTEN:
+                    pet = new Cat(PetsInHotel.SIXTEN.getWeight(), PetsInHotel.SIXTEN.getFoodType());
+                    break;
+                case OVE:
+                    pet = new Cat(PetsInHotel.OVE.getWeight(), PetsInHotel.OVE.getFoodType());
+                    break;
+                case VENUS:
+                    pet = new Cat(PetsInHotel.VENUS.getWeight(), PetsInHotel.VENUS.getFoodType());
+                    break;
+                case HYPNO:
+                    pet = new Snake(PetsInHotel.HYPNO.getFoodType());
+                    break;
+            }
+            /*
             if (petName.toLowerCase().endsWith("dogge")) {
-                pet = new Dog(PetsInHotel.DOG_DOGGE.getWeight(), PetsInHotel.DOG_DOGGE.getFoodType());
+                pet = new Dog(PetsInHotel.DOGGE.getWeight(), PetsInHotel.DOGGE.getFoodType());
             }
             if (petName.toLowerCase().endsWith("sixten")) {
-                pet = new Cat(PetsInHotel.DOG_SIXTEN.getWeight(), PetsInHotel.DOG_SIXTEN.getFoodType());
+                pet = new Cat(PetsInHotel.SIXTEN.getWeight(), PetsInHotel.SIXTEN.getFoodType());
             }
             if (petName.toLowerCase().endsWith("venus")) {
-                pet = new Cat(PetsInHotel.CAT_VENUS.getWeight(), PetsInHotel.CAT_VENUS.getFoodType());
+                pet = new Cat(PetsInHotel.VENUS.getWeight(), PetsInHotel.VENUS.getFoodType());
             }
             if (petName.toLowerCase().endsWith("ove")) {
-                pet = new Cat(PetsInHotel.CAT_OVE.getWeight(), PetsInHotel.CAT_OVE.getFoodType());
+                pet = new Cat(PetsInHotel.OVE.getWeight(), PetsInHotel.OVE.getFoodType());
             }
             if (petName.toLowerCase().endsWith("hynpo")) {
-                pet = new Snake(PetsInHotel.SNAKE_HYPNO.getFoodType());
+                pet = new Snake(PetsInHotel.HYPNO.getFoodType());
             }
+            */
             petName = "";
         }
+        //JOptionPane.showMessageDialog(null,pet.feed());
 
         return pet;
     }

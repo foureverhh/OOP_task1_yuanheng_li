@@ -1,7 +1,3 @@
-import eums.PetsInHotel;
-import real_class.Cat;
-import real_class.Dog;
-import real_class.Snake;
 import utils.Pet;
 
 import javax.swing.*;
@@ -11,7 +7,6 @@ public class Main {
         Pet pet = Pet.getProperPet();
         String petFood = pet.feed();
         JOptionPane.showMessageDialog(null, petFood, "Pet food", JOptionPane.INFORMATION_MESSAGE);
-
 
 
         /*   for(PetsInHotel a: PetsInHotel.values()){
