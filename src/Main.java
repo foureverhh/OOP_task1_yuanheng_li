@@ -4,9 +4,9 @@ import javax.swing.*;
 
 public class Main {
     public static void main(String[] args) {
-        Pet pet = Pet.getProperPet();
-        String petFood = pet.feed();
-        JOptionPane.showMessageDialog(null, petFood, "Pet food", JOptionPane.INFORMATION_MESSAGE);
+        Pet.getProperPet();
+        //String petFood = pet.feed();
+        //JOptionPane.showMessageDialog(null, petFood, "Pet food", JOptionPane.INFORMATION_MESSAGE);
 
 
         /*   for(PetsInHotel a: PetsInHotel.values()){

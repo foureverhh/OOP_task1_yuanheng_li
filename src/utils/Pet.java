@@ -13,8 +13,8 @@ public class Pet implements PetFeeder {
     private String foodType;
 
     @Override
-    public String feed() {
-        return "";
+    public void feed() {
+
     }
 
     public Pet(String foodType){
@@ -54,6 +54,7 @@ public class Pet implements PetFeeder {
                     break;
                 }
             }
+
             PetsInHotel petChosen = null;
 
             while(true){
@@ -65,44 +66,30 @@ public class Pet implements PetFeeder {
                 }
             }
 
-            System.out.println(petChosen);
             switch (petChosen){
                 case DOGGE:
                     pet = new Dog(PetsInHotel.DOGGE.getWeight(), PetsInHotel.DOGGE.getFoodType());
+                    pet.feed();
                     break;
                 case SIXTEN:
                     pet = new Cat(PetsInHotel.SIXTEN.getWeight(), PetsInHotel.SIXTEN.getFoodType());
+                    pet.feed();
                     break;
                 case OVE:
                     pet = new Cat(PetsInHotel.OVE.getWeight(), PetsInHotel.OVE.getFoodType());
+                    pet.feed();
                     break;
                 case VENUS:
                     pet = new Cat(PetsInHotel.VENUS.getWeight(), PetsInHotel.VENUS.getFoodType());
+                    pet.feed();
                     break;
                 case HYPNO:
                     pet = new Snake(PetsInHotel.HYPNO.getFoodType());
+                    pet.feed();
                     break;
             }
-            /*
-            if (petName.toLowerCase().endsWith("dogge")) {
-                pet = new Dog(PetsInHotel.DOGGE.getWeight(), PetsInHotel.DOGGE.getFoodType());
-            }
-            if (petName.toLowerCase().endsWith("sixten")) {
-                pet = new Cat(PetsInHotel.SIXTEN.getWeight(), PetsInHotel.SIXTEN.getFoodType());
-            }
-            if (petName.toLowerCase().endsWith("venus")) {
-                pet = new Cat(PetsInHotel.VENUS.getWeight(), PetsInHotel.VENUS.getFoodType());
-            }
-            if (petName.toLowerCase().endsWith("ove")) {
-                pet = new Cat(PetsInHotel.OVE.getWeight(), PetsInHotel.OVE.getFoodType());
-            }
-            if (petName.toLowerCase().endsWith("hynpo")) {
-                pet = new Snake(PetsInHotel.HYPNO.getFoodType());
-            }
-            */
             petName = "";
         }
-        //JOptionPane.showMessageDialog(null,pet.feed());
 
         return pet;
     }
