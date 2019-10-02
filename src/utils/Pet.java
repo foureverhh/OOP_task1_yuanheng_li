@@ -1,9 +1,6 @@
 package utils;
 
 import eums.PetsInHotel;
-import concrete_class.Cat;
-import concrete_class.Dog;
-import concrete_class.Snake;
 
 import javax.swing.*;
 
@@ -15,6 +12,9 @@ public class Pet implements PetFeeder {
     @Override
     public void feed() {
 
+    }
+
+    public Pet() {
     }
 
     public Pet(String foodType){
@@ -34,7 +34,7 @@ public class Pet implements PetFeeder {
         return foodType;
     }
 
-    public static void getProperPet(){
+    public void getProperPet(){
         Pet pet = null;
         PetsInHotel petChosen = null;
 
@@ -44,51 +44,84 @@ public class Pet implements PetFeeder {
                 ,JOptionPane.INFORMATION_MESSAGE);
 
 
-            while(true){
-                try {
-                    petChosen = Enum.valueOf(PetsInHotel.class,petName.trim().toUpperCase());
-                    break;
-                }catch (Exception e){
-                    petName = JOptionPane.showInputDialog("Your input does not match, input a pet name again:");
-                    if (petName == null){
-                        System.exit(0);
-                    }
+        while(true){
+            try {
+                petChosen = Enum.valueOf(PetsInHotel.class,petName.trim().toUpperCase());
+                break;
+            }catch (Exception e){
+                petName = JOptionPane.showInputDialog("Your input does not match, input a pet name again:");
+                if (petName == null){
+                    System.exit(0);
                 }
             }
+        }
 
-            switch (petChosen){
-                case DOGGE:
-                    pet = new Dog(PetsInHotel.DOGGE.weight, PetsInHotel.DOGGE.foodType);
-                    pet.feed();
-                    break;
-                case SIXTEN:
-                    pet = new Cat(PetsInHotel.SIXTEN.weight, PetsInHotel.SIXTEN.foodType);
-                    pet.feed();
-                    break;
-                case OVE:
-                    pet = new Cat(PetsInHotel.OVE.weight, PetsInHotel.OVE.foodType);
-                    pet.feed();
-                    break;
-                case VENUS:
-                    pet = new Cat(PetsInHotel.VENUS.weight, PetsInHotel.VENUS.foodType);
-                    pet.feed();
-                    break;
-                case HYPNO:
-                    pet = new Snake(PetsInHotel.HYPNO.foodType);
-                    pet.feed();
-                    break;
-            }
+        switch (petChosen){
+            case DOGGE:
+                pet = new Dog(PetsInHotel.DOGGE.weight, PetsInHotel.DOGGE.foodType);
+                pet.feed();
+                break;
+            case SIXTEN:
+                pet = new Cat(PetsInHotel.SIXTEN.weight, PetsInHotel.SIXTEN.foodType);
+                pet.feed();
+                break;
+            case OVE:
+                pet = new Cat(PetsInHotel.OVE.weight, PetsInHotel.OVE.foodType);
+                pet.feed();
+                break;
+            case VENUS:
+                pet = new Cat(PetsInHotel.VENUS.weight, PetsInHotel.VENUS.foodType);
+                pet.feed();
+                break;
+            case HYPNO:
+                pet = new Snake(PetsInHotel.HYPNO.foodType);
+                pet.feed();
+                break;
+        }
     }
 
-    public static class WarmBloodedPet extends Pet {
+    public  class WarmBloodedPet extends Pet {
         public WarmBloodedPet(int weight, String foodType){
             super(weight,foodType);
         }
     }
 
-    public static class ColdBloodedPet extends Pet {
+    public  class ColdBloodedPet extends Pet {
         public ColdBloodedPet(String foodType){
             super(foodType);
+        }
+    }
+
+    public class Dog extends WarmBloodedPet {
+        public Dog(int weight, String foodType) {
+            super(weight,foodType);
+        }
+        @Override
+        public void feed() {
+            int portions = this.getWeight() * 1000 /100;
+            JOptionPane.showMessageDialog(null,this.getClass().getSimpleName()+" weighs "+this.getWeight()+" kg and eats " +portions +" grams "+this.getFoodType());
+        }
+
+    }
+    public class Cat extends WarmBloodedPet {
+        public Cat(int weight, String foodType) {
+            super(weight, foodType);
+        }
+
+        @Override
+        public void feed() {
+            int portions = this.getWeight() * 1000 /150;
+            JOptionPane.showMessageDialog(null,this.getClass().getSimpleName()+" weighs "+this.getWeight()+" kg and eats " +portions +" grams "+this.getFoodType());
+        }
+    }
+    public class Snake extends ColdBloodedPet {
+        public Snake(String foodType) {
+            super(foodType);
+        }
+
+        @Override
+        public void feed() {
+            JOptionPane.showMessageDialog(null,this.getClass().getSimpleName()+" eats 20 grams "+this.getFoodType());
         }
     }
 }
