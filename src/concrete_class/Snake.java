@@ -1,4 +1,4 @@
-package real_class;
+package concrete_class;
 
 import utils.Pet;
 
@@ -11,6 +11,6 @@ public class Snake extends Pet.ColdBloodedPet {
 
     @Override
     public void feed() {
-        JOptionPane.showMessageDialog(null,"Snake eats 20 grams "+this.getFoodType());
+        JOptionPane.showMessageDialog(null,this.getClass().getSimpleName()+" eats 20 grams "+this.getFoodType());
     }
 }

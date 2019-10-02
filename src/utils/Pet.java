@@ -1,9 +1,9 @@
 package utils;
 
 import eums.PetsInHotel;
-import real_class.Cat;
-import real_class.Dog;
-import real_class.Snake;
+import concrete_class.Cat;
+import concrete_class.Dog;
+import concrete_class.Snake;
 
 import javax.swing.*;
 

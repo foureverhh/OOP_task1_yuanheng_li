@@ -1,4 +1,4 @@
-package real_class;
+package concrete_class;
 
 import utils.Pet;
 
@@ -12,6 +12,6 @@ public class Cat extends Pet.WarmBloodedPet {
     @Override
     public void feed() {
         int portions = this.getWeight() * 1000 /150;
-        JOptionPane.showMessageDialog(null,"This "+this.getClass().getSimpleName()+" weighs "+this.getWeight()+" kg and eats " +portions +" portions "+this.getFoodType());
+        JOptionPane.showMessageDialog(null,this.getClass().getSimpleName()+" weighs "+this.getWeight()+" kg and eats " +portions +" grams "+this.getFoodType());
     }
 }
