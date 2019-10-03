@@ -1,9 +1,9 @@
 package eums;
 
 public enum PetsInHotel {
-    SIXTEN(5,"dog food"), DOGGE(10,"dog food"),
-    VENUS(5,"cat food"),  OVE(3,"cat food"),
-    HYPNO(1,"snake food");
+    SIXTEN(5,FoodType.DOG_FOOD.foodType), DOGGE(10,FoodType.DOG_FOOD.foodType),
+    VENUS(5,FoodType.CAT_FOOD.foodType),  OVE(3,FoodType.CAT_FOOD.foodType),
+    HYPNO(1,FoodType.SNAKE_FOOD.foodType);
 
     public final int weight;
     public final String foodType;

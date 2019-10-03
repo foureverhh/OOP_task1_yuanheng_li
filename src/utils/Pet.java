@@ -1,5 +1,8 @@
 package utils;
 
+import concrete_class.Cat;
+import concrete_class.Dog;
+import concrete_class.Snake;
 import eums.PetsInHotel;
 
 import javax.swing.*;
@@ -62,7 +65,7 @@ public class Pet implements PetFeeder {
                 pet.feed();
                 break;
             case SIXTEN:
-                pet = new Cat(PetsInHotel.SIXTEN.weight, PetsInHotel.SIXTEN.foodType);
+                pet = new Dog(PetsInHotel.SIXTEN.weight, PetsInHotel.SIXTEN.foodType);
                 pet.feed();
                 break;
             case OVE:
@@ -77,51 +80,6 @@ public class Pet implements PetFeeder {
                 pet = new Snake(PetsInHotel.HYPNO.foodType);
                 pet.feed();
                 break;
-        }
-    }
-
-    public  class WarmBloodedPet extends Pet {
-        public WarmBloodedPet(int weight, String foodType){
-            super(weight,foodType);
-        }
-    }
-
-    public  class ColdBloodedPet extends Pet {
-        public ColdBloodedPet(String foodType){
-            super(foodType);
-        }
-    }
-
-    public class Dog extends WarmBloodedPet {
-        public Dog(int weight, String foodType) {
-            super(weight,foodType);
-        }
-        @Override
-        public void feed() {
-            int portions = this.getWeight() * 1000 /100;
-            JOptionPane.showMessageDialog(null,this.getClass().getSimpleName()+" weighs "+this.getWeight()+" kg and eats " +portions +" grams "+this.getFoodType());
-        }
-
-    }
-    public class Cat extends WarmBloodedPet {
-        public Cat(int weight, String foodType) {
-            super(weight, foodType);
-        }
-
-        @Override
-        public void feed() {
-            int portions = this.getWeight() * 1000 /150;
-            JOptionPane.showMessageDialog(null,this.getClass().getSimpleName()+" weighs "+this.getWeight()+" kg and eats " +portions +" grams "+this.getFoodType());
-        }
-    }
-    public class Snake extends ColdBloodedPet {
-        public Snake(String foodType) {
-            super(foodType);
-        }
-
-        @Override
-        public void feed() {
-            JOptionPane.showMessageDialog(null,this.getClass().getSimpleName()+" eats 20 grams "+this.getFoodType());
         }
     }
 }
